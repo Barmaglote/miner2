@@ -1,0 +1,15 @@
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\bin\Debug\EDU.Miner.Core.exe.config
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\bin\Debug\EDU.Miner.Core.exe
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\bin\Debug\EDU.Miner.Core.pdb
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\MainWindow.g.cs
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\App.g.cs
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core_MarkupCompile.cache
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core_MarkupCompile.lref
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\MainWindow.baml
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core.g.resources
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core.Properties.Resources.resources
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core.csproj.GenerateResource.cache
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core.csproj.CoreCompileInputs.cache
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core.exe
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core.pdb
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core.csprojAssemblyReference.cache
