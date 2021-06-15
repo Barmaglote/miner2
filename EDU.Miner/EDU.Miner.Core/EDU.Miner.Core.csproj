@@ -39,8 +39,17 @@
     <ApplicationIcon>minesweeper.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.31\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -59,13 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controller\GameController.cs" />
-    <Compile Include="Controller\IGameController.cs" />
-    <Compile Include="View\CellView.cs" />
-    <Compile Include="View\FieldView.cs" />
-    <Compile Include="View\ICellView.cs" />
-    <Compile Include="View\IFieldView.cs" />
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -73,7 +76,20 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Model\Field\INotifyable.cs" />
+    <Compile Include="Model\ModelBase.cs" />
+    <Compile Include="ViewModel\CellViewModel.cs" />
+    <Compile Include="ViewModel\Command\Command.cs" />
+    <Compile Include="ViewModel\Command\LambdaCommand.cs" />
+    <Compile Include="ViewModel\GameViewModel.cs" />
+    <Compile Include="ViewModel\Command\IStartGameCommand.cs" />
+    <Compile Include="ViewModel\Command\StartGameCommand.cs" />
+    <Compile Include="ViewModel\Command\ActionCommand.cs" />
+    <Compile Include="Converters\BoolInverter.cs" />
+    <Compile Include="Converters\ConvertorBase.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -83,12 +99,10 @@
     <Compile Include="Model\Cells\ICell.cs" />
     <Compile Include="Model\Factory\ConcreteFactory.cs" />
     <Compile Include="Model\Factory\IAbstractFactory.cs" />
-    <Compile Include="Model\FieldBuilder\Field.cs" />
-    <Compile Include="Model\FieldBuilder\FieldBuilder.cs" />
-    <Compile Include="Model\FieldBuilder\IField.cs" />
-    <Compile Include="Model\FieldBuilder\IFieldBuilder.cs" />
+    <Compile Include="Model\Field\StandardField.cs" />
+    <Compile Include="Model\Field\IField.cs" />
     <Compile Include="Model\MinerGame\IMinerGame.cs" />
-    <Compile Include="Model\MinerGame\MinerGame.cs" />
+    <Compile Include="Model\MinerGame\StandardMinerGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -106,17 +120,34 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="stylecop.json" />
+    <None Include="stylecop1.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="minesweeper.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\bomb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\smile.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

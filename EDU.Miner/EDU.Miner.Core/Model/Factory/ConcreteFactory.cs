@@ -1,58 +1,58 @@
-﻿using EDU.Miner.Core.Controller;
-using EDU.Miner.Core.Model.Cells;
-using EDU.Miner.Core.Model.FieldBuilder;
-using EDU.Miner.Core.Model.MinerGame;
-using EDU.Miner.Core.View;
-using System.Windows.Controls.Primitives;
+﻿// <copyright file="ConcreteFactory.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace EDU.Miner.Core.Model.Factory
 {
-    public class ConcreteFactory : IAbstractFactory
+    using EDU.Miner.Core.ViewModel;
+
+    /// <summary>
+    /// Abstract factory realization.
+    /// </summary>
+    internal class ConcreteFactory : IAbstractFactory
     {
-        public ICell CreateCell(bool withBomb)
+        /// <summary>
+        /// Creates Cell.
+        /// </summary>
+        /// <param name="container">Container.</param>
+        /// <param name="withBomb">Bomb is present.</param>
+        /// <param name="position">Position.</param>
+        /// <returns>ICell.</returns>
+        public ICell CreateCell(IField container, bool withBomb, (int x, int y) position)
         {
-            return new Cell(withBomb);
+            return new Cell(container, withBomb, position);
         }
 
-        public ICellView CreateCellView(int x, int y)
+        /// <summary>
+        /// Creates field.
+        /// </summary>
+        /// <param name="size">Size of field.</param>
+        /// <param name="bombs">Ammount bombs.</param>
+        /// <returns>IField.</returns>
+        public IField CreateField((int Width, int Height) size, int bombs)
         {
-            return new CellView(x, y);
-        }
-        public IGameController CreateGameController()
-        {
-            return GameController.CreateInstance();
-        }
-
-        public IFieldBuilder CreateFieldBuilder()
-        {
-            return new FieldBuilder.FieldBuilder();
+            return new StandardField(size, bombs);
         }
 
-        public IField CreateField(IFieldBuilder builder, int width, int height, int bombs)
+        /// <summary>
+        /// Creates game.
+        /// </summary>
+        /// <param name="size">Size of field.</param>
+        /// <param name="bombs">Ammount of bombs.</param>
+        /// <returns>IMinerGame.</returns>
+        public IMinerGame CreateGame((int Width, int Height) size, int bombs)
         {
-            builder.BuildField(width, height, bombs);
-            return builder.GetField();
+            return new StandardMinerGame(size, bombs);
         }
 
-        public IFieldView CreateFieldView(UniformGrid grid, int x, int y)
+        /// <summary>
+        /// Create StartGameCommand.
+        /// </summary>
+        /// <param name="vm">GameViewModel.</param>
+        /// <returns>IStartGameCommand.</returns>
+        public IStartGameCommand CreateStartGameCommand(GameViewModel vm)
         {
-            return new FieldView(grid, x, y);
+            return new StartGameCommand(vm);
         }
-
-        public static IAbstractFactory CreateInstance()
-        {
-            if (__UniqueInstance == null) {
-                __UniqueInstance = new ConcreteFactory();
-            }
-
-            return __UniqueInstance;
-        }
-
-        public IMinerGame CreateMinerGame(IFieldView fieldView, IGameController controller)
-        {
-            return new MinerGame.MinerGame(fieldView, controller);
-        }
-
-        private static IAbstractFactory __UniqueInstance = null;
     }
 }

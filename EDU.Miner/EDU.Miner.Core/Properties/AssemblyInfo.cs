@@ -1,4 +1,8 @@
-﻿using System.Reflection;
+﻿// <copyright file="AssemblyInfo.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+using System.Reflection;
 using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -29,17 +33,16 @@ using System.Windows;
 //строка внизу для обеспечения соответствия настройки UICulture в файле проекта.
 
 //[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
-
-
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //где расположены словари ресурсов по конкретным тематикам
+
                                      //(используется, если ресурс не найден на странице,
                                      // или в словарях ресурсов приложения)
     ResourceDictionaryLocation.SourceAssembly //где расположен словарь универсальных ресурсов
+
                                               //(используется, если ресурс не найден на странице,
                                               // в приложении или в каких-либо словарях ресурсов для конкретной темы)
 )]
-
 
 // Сведения о версии для сборки включают четыре следующих значения:
 //
@@ -48,7 +51,7 @@ using System.Windows;
 //      Номер сборки
 //      Номер редакции
 //
-// Можно задать все значения или принять номера сборки и редакции по умолчанию 
+// Можно задать все значения или принять номера сборки и редакции по умолчанию
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]

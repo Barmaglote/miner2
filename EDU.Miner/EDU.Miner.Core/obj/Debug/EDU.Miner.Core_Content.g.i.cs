@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("minesweeper.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("004.png")]
 
 
