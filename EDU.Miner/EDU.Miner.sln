@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDU.Miner.Test", "EDU.Miner.Test\EDU.Miner.Test.csproj", "{D420F4D4-90E1-4BA3-9E43-3C2DBE5D5DB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{AF680027-9C38-4816-ACBE-49B7D0431128}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF680027-9C38-4816-ACBE-49B7D0431128}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF680027-9C38-4816-ACBE-49B7D0431128}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D420F4D4-90E1-4BA3-9E43-3C2DBE5D5DB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D420F4D4-90E1-4BA3-9E43-3C2DBE5D5DB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D420F4D4-90E1-4BA3-9E43-3C2DBE5D5DB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D420F4D4-90E1-4BA3-9E43-3C2DBE5D5DB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

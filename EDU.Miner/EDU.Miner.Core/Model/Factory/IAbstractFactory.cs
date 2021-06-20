@@ -2,10 +2,10 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
+using EDU.Miner.Core.DataContext;
+
 namespace EDU.Miner.Core.Model.Factory
 {
-    using EDU.Miner.Core.ViewModel;
-
     /// <summary>
     /// Abstract Factory.
     /// </summary>
@@ -37,10 +37,15 @@ namespace EDU.Miner.Core.Model.Factory
         IMinerGame CreateGame((int Width, int Height) size, int bombs);
 
         /// <summary>
-        /// Create StartcGameCommand.
+        /// Creates new HistoryDataModelContext.
         /// </summary>
-        /// <param name="vm">GameViewModel.</param>
-        /// <returns>IStartGameCommand.</returns>
-        IStartGameCommand CreateStartGameCommand(GameViewModel vm);
+        /// <returns></returns>
+        HistoryDataContext CreateHistoryDataModelContext();
+
+        /// <summary>
+        /// Creates repository to access HistoryData
+        /// </summary>
+        /// <returns></returns>
+        IHistoryDataProvider CreateRepository();
     }
 }

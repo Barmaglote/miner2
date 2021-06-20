@@ -71,5 +71,9 @@ namespace EDU.Miner.Core.Model
         /// <param name="position">Position.</param>
         /// <returns>All neighbors.</returns>
         IEnumerable<ICell> GetNeighbors((int x, int y) position);
+        /// <summary>
+        /// Field is unmined.
+        /// </summary>
+        bool IsUnmined { get; }
     }
 }

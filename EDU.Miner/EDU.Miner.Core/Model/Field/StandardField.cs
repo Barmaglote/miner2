@@ -258,6 +258,21 @@ namespace EDU.Miner.Core.Model
         public void NotifyOnUpdate()
         {
             this.OnPropertyChanged("BombsIsLeft");
+            this.OnPropertyChanged("Field");
+        }
+
+        /// <summary>
+        /// Checks whether field is unminded.
+        /// </summary>
+        /// <returns></returns>
+        public bool IsUnmined
+        {
+            get {
+                var allBombsAreMarked = !Items.Any(item => item.IsMined && !item.IsMarked);
+                var allNonBombsAreOpened = !Items.Any(item => !item.IsMined && !item.IsOpened);
+
+                return allBombsAreMarked && allNonBombsAreOpened;
+            }
         }
 
         /// <summary>

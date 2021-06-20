@@ -4,7 +4,6 @@ C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\bin\Debug\EDU.Mi
 C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\bin\Debug\Microsoft.Xaml.Behaviors.dll
 C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\bin\Debug\Microsoft.Xaml.Behaviors.xml
-C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core.csprojAssemblyReference.cache
 C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\View\MainWindow.g.cs
 C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\App.g.cs
 C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -18,3 +17,13 @@ C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Mi
 C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core.csproj.CopyComplete
 C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core.exe
 C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core.pdb
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\bin\Debug\Records.mdf
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\bin\Debug\Records_log.ldf
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\bin\Debug\EntityFramework.dll
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\bin\Debug\EntityFramework.SqlServer.dll
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\bin\Debug\EntityFramework.xml
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\bin\Debug\EntityFramework.SqlServer.xml
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\bin\Debug\ru\EntityFramework.resources.dll
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core_Content.g.cs
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core.Migrations.Initial.resources
+C:\REPOSITORY\Git\EDUCATION\c#\minerv2\EDU.Miner\EDU.Miner.Core\obj\Debug\EDU.Miner.Core.csprojAssemblyReference.cache

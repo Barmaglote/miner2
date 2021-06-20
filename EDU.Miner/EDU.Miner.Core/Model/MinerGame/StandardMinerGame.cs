@@ -26,8 +26,15 @@ namespace EDU.Miner.Core.Model
         {
             this.Size = size;
             this.Bombs = bombs;
-            this.Field = this.Factory.CreateField((10, 10), 10);
+            this.Field = this.Factory.CreateField((size.Width, size.Height), bombs);
             this.IsActive = false;
+
+            (this.Field as INotifyPropertyChanged).PropertyChanged += StandardMinerGame_PropertyChanged;
+        }
+
+        private void StandardMinerGame_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            this.OnPropertyChanged(e.PropertyName);
         }
 
         /// <summary>

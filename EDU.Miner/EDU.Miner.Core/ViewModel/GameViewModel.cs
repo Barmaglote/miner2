@@ -4,10 +4,14 @@
 
 namespace EDU.Miner.Core.ViewModel
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
     using System.Windows.Input;
+    using EDU.Miner.Core.DataContext;
     using EDU.Miner.Core.Model;
     using EDU.Miner.Core.Model.Factory;
 
@@ -18,6 +22,28 @@ namespace EDU.Miner.Core.ViewModel
     {
         private IMinerGame game;
         private string _Title = "Miner 2.0";
+        private int _TimeIsLeftSeconds = 1000;
+        private readonly int _OneSecondInMiliseconds = 1000;
+        private int _StartCountDown = 1000;
+        private CancellationTokenSource _CancellationTokenSource;
+        private bool _IsStarted = false;
+
+        public IHistoryDataProvider History { get; private set; }
+
+        public IEnumerable<HistoricalRecord> HistoricalRecords
+        {
+            get {
+                return History?.Records.OrderByDescending(r => r.TotalTimeInSeconds).ToList();
+            }
+        }
+
+        public int TimeIsLeftSeconds
+        {
+            get => _TimeIsLeftSeconds;
+            set => Set(ref _TimeIsLeftSeconds, value);
+        }
+
+
         public string Title 
         {
             get => _Title;
@@ -30,20 +56,29 @@ namespace EDU.Miner.Core.ViewModel
         public GameViewModel()
         {
             this.Game = this.Factory.CreateGame((10, 10), 10);
+            this._CancellationTokenSource = new CancellationTokenSource();
             this.StartGameCommand = new LambdaCommand(OnStartGameCommandExecuted, CanStartGameCommandExecute);
             (this.Game.Field as INotifyPropertyChanged).PropertyChanged += this.GameViewModel_PropertyChanged;
+            (this.Game as INotifyPropertyChanged).PropertyChanged += this.GameViewModel_PropertyChanged;
+
+            this.History = this.Factory.CreateRepository();
         }
 
         /// <summary>
         /// Gets get Command of Game's start.
         /// </summary>
-        //public IStartGameCommand StartGameCommand { get; private set; }
         public ICommand StartGameCommand { get; private set; }
 
         private bool CanStartGameCommandExecute(object p) => true;
         private void OnStartGameCommandExecuted(object p)
         {
             this.Start();
+            if (this._IsStarted)
+            {                
+                this._CancellationTokenSource.Cancel();
+                this._CancellationTokenSource = new CancellationTokenSource();
+            }
+            Task.Factory.StartNew(() => this._CountDown(this._StartCountDown, this._CancellationTokenSource.Token));
         }
 
         /// <summary>
@@ -51,7 +86,10 @@ namespace EDU.Miner.Core.ViewModel
         /// </summary>
         public IMinerGame Game
         {
-            get { return this.game; }
+            get 
+            {
+                return this.game; 
+            }
             private set { this.game = value; }
         }
 
@@ -77,6 +115,22 @@ namespace EDU.Miner.Core.ViewModel
             }
         }
 
+        private void _CountDown(int start, CancellationToken token)
+        {
+            if (this._IsStarted) {
+                return;
+            }
+            this._IsStarted = true;
+            this.TimeIsLeftSeconds = start;
+            while (this.TimeIsLeftSeconds > 0 && !token.IsCancellationRequested)
+            {
+                this._CheckGameStatus();
+                Thread.Sleep(_OneSecondInMiliseconds);
+                this.TimeIsLeftSeconds--;
+            }
+            this._IsStarted = false;
+        }
+
         /// <summary>
         /// Gets Abstract factory.
         /// </summary>
@@ -94,8 +148,19 @@ namespace EDU.Miner.Core.ViewModel
 
         private void GameViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            this.Game.Stop();
-            this.OnPropertyChanged("IsActive");
+            this._CheckGameStatus();
+        }
+
+        private void _CheckGameStatus() 
+        {
+            if (this.TimeIsLeftSeconds > 0 && this.Game.Field.IsUnmined)
+            {
+                this.History.AddNewRecord(new HistoricalRecord() { Time = DateTime.Now, TotalTimeInSeconds = this._StartCountDown - this.TimeIsLeftSeconds });
+                this.OnPropertyChanged("HistoricalRecords");
+                this.Game.Stop();
+                this._CancellationTokenSource.Cancel();
+                this.OnPropertyChanged("IsActive");
+            }
         }
     }
 }

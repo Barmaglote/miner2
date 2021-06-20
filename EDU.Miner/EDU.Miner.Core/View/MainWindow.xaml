@@ -9,7 +9,7 @@
         xmlns:game="clr-namespace:EDU.Miner.Core.ViewModel"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="450" Width="800">
+        Title="{Binding Title}" Height="650" Width="850" ResizeMode="NoResize">
     <Window.TaskbarItemInfo>
         <TaskbarItemInfo/>
     </Window.TaskbarItemInfo>
@@ -113,7 +113,15 @@
             </Button>
             <TextBlock Grid.Column="0" Width="140" Height="40" x:Name="MinesMarkedTextBox" FontSize="28" FontWeight="Bold" Foreground="White" Text="{Binding Game.Field.BombsIsLeft}" TextAlignment="Center" VerticalAlignment="Center" Background="#FFFDD080" Padding="1" AutomationProperties.HelpText="Количество ненайденных бомб">
             </TextBlock>
-            <TextBlock Grid.Column="2" Width="140" Height="40" x:Name="TimeLeftTextBox" FontSize="28" FontWeight="Bold" Foreground="White" TextAlignment="Center" VerticalAlignment="Center" Background="#FFFDD080" Padding="1"/>
+            <TextBlock Grid.Column="2" Width="140" Height="40" x:Name="TimeLeftTextBox" FontSize="28" FontWeight="Bold" Foreground="White" Text="{Binding TimeIsLeftSeconds}" TextAlignment="Center" VerticalAlignment="Center" Background="#FFFDD080" Padding="1"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="495" Margin="650,83,10,0" VerticalAlignment="Top">
+            <DataGrid ItemsSource="{Binding HistoricalRecords}" x:Name="RecordsDataGrid" HeadersVisibility="Column" IsReadOnly="True" AutoGenerateColumns="false" ColumnWidth="*" HorizontalAlignment="Left">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Date" Binding="{Binding Time}" Width="80*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Time" Binding="{Binding TotalTimeInSeconds}" Width="20*"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </Window>

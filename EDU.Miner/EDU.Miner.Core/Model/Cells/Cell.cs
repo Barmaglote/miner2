@@ -5,7 +5,6 @@
 namespace EDU.Miner.Core.Model
 {
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.Linq;
 
     /// <summary>
@@ -76,7 +75,11 @@ namespace EDU.Miner.Core.Model
         public bool IsMarked
         {
             get { return this.isMarked; }
-            set { this.isMarked = value; }
+            set {
+                this.OnPropertyChanged("IsMarked");
+                this.isMarked = value;
+                (this.Container as INotifyable).NotifyOnUpdate();
+            }
         }
 
         /// <summary>
@@ -105,6 +108,7 @@ namespace EDU.Miner.Core.Model
                 this.isOpened = value;
                 this.OnPropertyChanged("IsOpened");
                 this.OnPropertyChanged("IsMinedAndOpened");
+                (this.Container as INotifyable).NotifyOnUpdate();
             }
         }
 
@@ -223,6 +227,7 @@ namespace EDU.Miner.Core.Model
 
             this.IsOpened = true;
             this.OnPropertyChanged("IsOpened");
+            (this.Container as INotifyable).NotifyOnUpdate();
 
             if (!isRecursive)
             {

@@ -2,14 +2,14 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
+using EDU.Miner.Core.DataContext;
+
 namespace EDU.Miner.Core.Model.Factory
 {
-    using EDU.Miner.Core.ViewModel;
-
     /// <summary>
     /// Abstract factory realization.
     /// </summary>
-    internal class ConcreteFactory : IAbstractFactory
+    public class ConcreteFactory : IAbstractFactory
     {
         /// <summary>
         /// Creates Cell.
@@ -45,14 +45,14 @@ namespace EDU.Miner.Core.Model.Factory
             return new StandardMinerGame(size, bombs);
         }
 
-        /// <summary>
-        /// Create StartGameCommand.
-        /// </summary>
-        /// <param name="vm">GameViewModel.</param>
-        /// <returns>IStartGameCommand.</returns>
-        public IStartGameCommand CreateStartGameCommand(GameViewModel vm)
+        public HistoryDataContext CreateHistoryDataModelContext()
         {
-            return new StartGameCommand(vm);
+            return new HistoryDataContext();
+        }
+
+        public IHistoryDataProvider CreateRepository()
+        {
+            return HistoryData.GetInstance();
         }
     }
 }

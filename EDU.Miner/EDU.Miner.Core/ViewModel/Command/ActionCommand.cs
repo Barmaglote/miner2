@@ -7,7 +7,6 @@ namespace EDU.Miner.Core.Controller
     using System;
     using System.Windows.Input;
 
-    [Obsolete]
     /// <summary>
     /// Command base on Action.
     /// </summary>
